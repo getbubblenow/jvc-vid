@@ -4,6 +4,16 @@ function die () {
   exit 1
 }
 
+if [[ -z "$(which ffmpeg)" ]] ; then
+  die "ffmpeg not found"
+fi
+if [[ -z "$(which mediainfo)" ]] ; then
+  die "mediainfo not found"
+fi
+if [[ -z "$(which java)" ]] ; then
+  die "java not found"
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${0}")" && pwd)"
 cd "${SCRIPT_DIR}" || die "Error changing into directory: ${SCRIPT_DIR}"
 
@@ -13,7 +23,10 @@ if [[ -z "${JVC}" ]] ; then
   echo "jvc command not found, cloning and building: ${JVC_REPO}"
   git clone ${JVC_REPO} || die "Error cloning repository: ${JVC_REPO}"
   pushd javicle || die "pushd error"
-  ./bin/jvc --help > /dev/null 2>&1 || die "Error building jvc"
+  if [[ -z "$(which mvn)" ]] ; then
+    die "mvn not found"
+  fi
+  ./bin/jvc --help > /dev/null 2>&1
 fi
 export PATH=${PATH}:${SCRIPT_DIR}/javicle/bin
 JVC="$(which jvc)"
