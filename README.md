@@ -1,6 +1,6 @@
 JVC introductory video
 ======================
-I'm really into meta thing.
+I'm really into all things meta.
 
 Thus, the video introduction to JVC was created with JVC.
 
@@ -43,5 +43,5 @@ The basic steps are:
 # Watch the video!
 Assuming you have [VLC](https://www.videolan.org/vlc/) installed, run:
 ```shell script
-vlc output/jvc-video.mp4
+vlc ./jvc-vid.mp4
 ```
