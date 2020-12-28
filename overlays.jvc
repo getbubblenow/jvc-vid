@@ -1,0 +1,260 @@
+{
+  "vars": [
+    // TR = top-right
+    {"name": "TR_width", "value": "source.width / 3"},
+    {"name": "TR_height", "value": "source.height / 3"},
+    {"name": "TR_x", "value": "source.width * 0.6"},
+    {"name": "TR_y", "value": "source.height * 0.15"},
+    // BR = bottom-right
+    {"name": "BR_width", "value": "source.width / 4"},
+    {"name": "BR_height", "value": "source.height / 4"},
+    {"name": "BR_x", "value": "source.width * 0.72"},
+    {"name": "BR_y", "value": "source.height * 0.72"},
+    // BL = bottom-left
+    {"name": "BL_width", "value": "source.width * 0.4"},
+    {"name": "BL_height", "value": "source.height * 0.4"},
+    {"name": "BL_x", "value": "source.width * 0.1"},
+    {"name": "BL_y", "value": "source.height * 0.575"},
+    // END = ending slide
+    {"name": "END_width", "value": "source.width * 0.6"},
+    {"name": "END_height", "value": "source.height * 0.6"},
+    {"name": "END_x", "value": "source.width * 0.2"},
+    {"name": "END_y", "value": "source.height * 0.1"}
+  ],
+  "assets": [
+    {
+      "name": "commentary1",
+        "path": "output/iphone_01_intro_trimmed.mp4"
+    },
+    {
+      "name": "commentary2",
+      "path": "output/iphone_02_why_trimmed.mp4"
+    },
+    {
+      "name": "commentary3",
+      "path": "output/iphone_03_why_trimmed.mp4"
+    },
+    {
+      "name": "commentary4",
+      "path": "output/iphone_04_build_trimmed.mp4"
+    },
+    {
+      "name": "commentary5",
+      "path": "output/iphone_05_build_trimmed.mp4"
+    },
+    {
+      "name": "commentary6",
+      "path": "output/iphone_06_run_trimmed.mp4"
+    },
+    {
+      "name": "commentary7",
+      "path": "output/iphone_07_operations_trimmed.mp4"
+    },
+    {
+      "name": "commentary8",
+      "path": "output/iphone_08_making_of_trimmed.mp4"
+    },
+    {
+      "name": "commentary9",
+      "path": "output/iphone_09_end_trimmed.mp4"
+    },
+    {
+      "name": "slide1",
+      "path": "output/slide_01.mp4"
+    },
+    {
+      "name": "slide2",
+      "path": "output/slide_02.mp4"
+    },
+    {
+      "name": "slide3",
+      "path": "output/slide_03.mp4"
+    },
+    {
+      "name": "slide4",
+      "path": "output/slide_04.mp4"
+    },
+    {
+      "name": "slide5",
+      "path": "output/slide_05.mp4"
+    },
+    {
+      "name": "slide6",
+      "path": "output/slide_06.mp4"
+    },
+    {
+      "name": "slide7",
+      "path": "output/slide_07.mp4"
+    },
+    {
+      "name": "slide8",
+      "path": "output/slide_08.mp4"
+    },
+    {
+      "name": "slide9",
+      "path": "output/slide_09.mp4"
+    },
+    {
+      "name": "build_screencast",
+      "path": "output/build.mp4"
+    }
+  ],
+  "operations": [
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay01",            // name of the output asset
+        "dest": "output/overlay01.mp4"
+      },
+      "source": "slide1",              // main video asset
+      "overlay": {
+        "start": "1.5",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary1",       // overlay this video on the main video
+        "width": "TR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "TR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "TR_x",              // horizontal overlay position on main video. default is 0
+        "y": "TR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay02",            // name of the output asset
+        "dest": "output/overlay02.mp4"
+      },
+      "source": "slide2",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary2",       // overlay this video on the main video
+        "width": "BR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BR_x",              // horizontal overlay position on main video. default is 0
+        "y": "BR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay03",            // name of the output asset
+        "dest": "output/overlay03.mp4"
+      },
+      "source": "slide3",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary3",       // overlay this video on the main video
+        "width": "BR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BR_x",              // horizontal overlay position on main video. default is 0
+        "y": "BR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay04",            // name of the output asset
+        "dest": "output/overlay04.mp4"
+      },
+      "source": "slide4",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary4",       // overlay this video on the main video
+        "width": "TR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "TR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "TR_x",              // horizontal overlay position on main video. default is 0
+        "y": "TR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "_overlay05",            // name of the output asset
+        "dest": "output/_overlay05.mp4"
+      },
+      "source": "slide5",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary5",       // overlay this video on the main video
+        "width": "BR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BR_x",              // horizontal overlay position on main video. default is 0
+        "y": "BR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay05",            // name of the output asset
+        "dest": "output/overlay05.mp4"
+      },
+      "source": "_overlay05",              // main video asset
+      "overlay": {
+        "start": "0.3",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "build_screencast",       // overlay this video on the main video
+        "end": "source.duration + 2",
+        "width": "BL_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BL_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BL_x",              // horizontal overlay position on main video. default is 0
+        "y": "BL_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "comment": "no good place to show overlay, so just insert the audio",
+      "operation": "merge-audio",          // name of the operation
+      "creates": {
+        "name": "overlay06",            // name of the output asset
+        "dest": "output/overlay06.mp4"
+      },
+      "source": "slide6",
+      "insert": "commentary6",
+      "at": "0.9"
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay07",            // name of the output asset
+        "dest": "output/overlay07.mp4"
+      },
+      "source": "slide7",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary7",       // overlay this video on the main video
+        "width": "BR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BR_x",              // horizontal overlay position on main video. default is 0
+        "y": "BR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay08",            // name of the output asset
+        "dest": "output/overlay08.mp4"
+      },
+      "source": "slide8",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary8",       // overlay this video on the main video
+        "width": "BR_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "BR_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "BR_x",              // horizontal overlay position on main video. default is 0
+        "y": "BR_y"               // vertical overlay position on main video. default is 0
+      }
+    },
+    {
+      "operation": "overlay",          // name of the operation
+      "creates": {
+        "name": "overlay09",            // name of the output asset
+        "dest": "output/overlay09.mp4"
+      },
+      "source": "slide9",              // main video asset
+      "overlay": {
+        "start": "0.9",                // when (on the main video timeline) to begin showing the overlay. default is 0 (beginning)
+        "source": "commentary9",       // overlay this video on the main video
+        "width": "END_width",      // how wide the overlay will be, in pixels. default is the full overlay width, or maintain aspect ratio if height was set
+        "height": "END_height",    // how tall the overlay will be, in pixels. default is the full overlay height, or maintain aspect ratio if width was set
+        "x": "END_x",              // horizontal overlay position on main video. default is 0
+        "y": "END_y"               // vertical overlay position on main video. default is 0
+      }
+    }
+  ]
+}
