@@ -2,7 +2,8 @@ JVC introductory video
 ======================
 I'm really into all things meta.
 
-Thus, the video introduction to JVC was created with JVC.
+Thus, the video introduction to [JVC](https://github.com/getbubblenow/javicle)
+was created with [JVC](https://github.com/getbubblenow/javicle).
 
 # Input Assets
 The files in `assets` are what I started with:
