@@ -20,13 +20,17 @@ cd "${SCRIPT_DIR}" || die "Error changing into directory: ${SCRIPT_DIR}"
 JVC="$(which jvc)"
 if [[ -z "${JVC}" ]] ; then
   JVC_REPO="https://github.com/getbubblenow/javicle.git"
-  echo "jvc command not found, cloning and building: ${JVC_REPO}"
-  git clone ${JVC_REPO} || die "Error cloning repository: ${JVC_REPO}"
+  echo "jvc command not found"
+  if [[ ! -d javicle ]] ; then
+    echo "cloning: ${JVC_REPO}"
+    git clone ${JVC_REPO} || die "Error cloning repository: ${JVC_REPO}"
+  fi
   pushd javicle || die "pushd error"
   if [[ -z "$(which mvn)" ]] ; then
     die "mvn not found"
   fi
   ./bin/jvc --help > /dev/null 2>&1
+  popd || die "popd error"
 fi
 export PATH=${PATH}:${SCRIPT_DIR}/javicle/bin
 JVC="$(which jvc)"
@@ -34,18 +38,18 @@ if [[ -z "${JVC}" ]] ; then
   die "jvc command not found even after building jvc jar"
 fi
 
-mkdir -p output
+mkdir -p output || die "Error creating output directory"
 
 # Re-create build_screencast.mp4
 BUILD_SCREENCAST_SRC=assets/build_screencast.mp4
 if [[ ! -f "${BUILD_SCREENCAST_SRC}" ]] ; then
-  cat "${BUILD_SCREENCAST_SRC}.1" "${BUILD_SCREENCAST_SRC}.2" > "${BUILD_SCREENCAST_SRC}" || die "re-creating ${BUILD_SCREENCAST_SRC}"
+  cat ${BUILD_SCREENCAST_SRC}.1 ${BUILD_SCREENCAST_SRC}.2 > ${BUILD_SCREENCAST_SRC} || die "re-creating ${BUILD_SCREENCAST_SRC}"
 fi
 
 # Re-create iphone_07_operations.mp4
 IPHONE_SLIDE_7=assets/iphone_07_operations.mp4
 if [[ ! -f "${IPHONE_SLIDE_7}" ]] ; then
-  cat "${IPHONE_SLIDE_7}.1" "${IPHONE_SLIDE_7}.2" > "${IPHONE_SLIDE_7}" || die "re-creating ${IPHONE_SLIDE_7}"
+  cat ${IPHONE_SLIDE_7}.1 ${IPHONE_SLIDE_7}.2 > ${IPHONE_SLIDE_7} || die "re-creating ${IPHONE_SLIDE_7}"
 fi
 
 # Slide 1
